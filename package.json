@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Graphql implementation of beer api (client, server and relay)",
   "scripts": {
-    "postinstall": "node src/api/data",
+    "generate-database" : "node_modules/babel/bin/babel-node.js src/api/data",
+    "postinstall": "npm run generate-database",
+    "start-api": "node src/api",
     "test": "exit 0"
   },
   "keywords": [
@@ -26,6 +28,7 @@
   },
   "dependencies": {
     "babel": "^5.8.29",
+    "baobab": "^2.1.0",
     "express": "^4.13.3",
     "graphql": "^0.4.9"
   },

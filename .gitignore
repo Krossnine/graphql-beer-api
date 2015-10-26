@@ -12,4 +12,4 @@
 ### Generated files ###
 node_modules/
 *.log
-src/api/data/*.json
+src/api/data/**/*.json
