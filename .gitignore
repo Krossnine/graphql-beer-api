@@ -1,0 +1,15 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+### Intellij ###
+*.iml
+.idea/
+
+### Generated files ###
+node_modules/
+*.log
+src/api/data/*.json

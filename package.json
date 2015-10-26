@@ -1,0 +1,35 @@
+{
+  "name": "graphql-beer-api",
+  "version": "0.0.1",
+  "description": "Graphql implementation of beer api (client, server and relay)",
+  "scripts": {
+    "postinstall": "node src/api/data",
+    "test": "exit 0"
+  },
+  "keywords": [
+    "facebook",
+    "graphql",
+    "react",
+    "relay",
+    "api",
+    "client",
+    "server"
+  ],
+  "author": "Krossnine <jeremy.wallez@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Krossnine/graphql-beer-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Krossnine/graphql-beer-api/issues"
+  },
+  "dependencies": {
+    "babel": "^5.8.29",
+    "express": "^4.13.3",
+    "graphql": "^0.4.9"
+  },
+  "devDependencies": {
+    "csvtojson": "^0.4.3"
+  }
+}
