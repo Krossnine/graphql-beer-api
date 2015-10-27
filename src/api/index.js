@@ -1,9 +1,19 @@
 "use strict";
 
-require("babel/register");
+const app = new require("express")();
 
-var port = process.env.API_PORT || 4000;
-
-require("./app").listen(port, function onStart() {
-  console.info("Beer api server started on port", port);
+app.use(require("./resource"));
+app.use((req, res) => {
+  res.status(404).send({
+    error : 'Not found'
+  });
 });
+app.use((err, req, res, next) => {
+  res.status(500).send({
+    error : 'Internal server error'
+  });
+});
+
+module.exports = app;
+
+

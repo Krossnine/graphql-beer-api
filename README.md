@@ -11,15 +11,9 @@ More info on :
 npm install
 ```
 
-### Start beer api
+### Start beer api and graphql server
 ```shell
-npm run start-api
+npm run start
 ```
 
-### Run some graphql queries :
-
-```shell
-npm run graphql-queries
-```
-
-Note : You should start beer api.
+and go to http://localhost:3000
