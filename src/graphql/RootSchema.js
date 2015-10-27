@@ -13,13 +13,13 @@ const BeerSchema = new GraphQLSchema({
         type : BeerType,
         description : 'Find a beer by id',
         args : {
-          id : {
-            name : 'id',
+          beerId : {
+            name : 'beerId',
             type : new GraphQLNonNull(GraphQLID)
           }
         },
-        resolve : (root, {id}) => {
-          return apiClient.beer.findById(id);
+        resolve : (root, {beerId}) => {
+          return apiClient.beer.findById(beerId);
         }
       },
       beers : {
@@ -34,12 +34,12 @@ const BeerSchema = new GraphQLSchema({
         description : 'Find a brewery by id',
         args : {
           id : {
-            name : 'id',
+            name : 'breweryId',
             type : new GraphQLNonNull(GraphQLID)
           }
         },
-        resolve : (root, {id}) => {
-          return apiClient.brewery.findById(id);
+        resolve : (root, {breweryId}) => {
+          return apiClient.brewery.findById(breweryId);
         }
       },
       breweries : {

@@ -1,6 +1,9 @@
 "use strict";
 
-import { GraphQLID, GraphQLObjectType, GraphQLNonNull, GraphQLInt, GraphQLString} from 'graphql';
+import {GraphQLID, GraphQLObjectType, GraphQLNonNull, GraphQLInt, GraphQLString} from 'graphql';
+
+const ApiClient = require('../api/client/index');
+const apiClient = new ApiClient("http://localhost:4000");
 
 const BeerType = new GraphQLObjectType({
   name : 'Beer',
@@ -17,6 +20,13 @@ const BeerType = new GraphQLObjectType({
     descript : {
       type : GraphQLString,
       description : 'The description of the beer.'
+    },
+    brewery : {
+      type : require("./BreweryType"),
+      description : 'The brewery of the beer.',
+      resolve: (beer) => {
+        return apiClient.brewery.findById(beer.brewery_id);
+      }
     }
   })
 });
