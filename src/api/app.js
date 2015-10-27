@@ -2,10 +2,19 @@
 
 const express = require("express");
 const app = new express();
-const port = process.env.API_PORT || 4000;
 
 app.use(require("./resource"));
-
-app.listen(port, function apiStarted() {
-  console.info("Beer api server started on port", port);
+app.use((req, res) => {
+  res.status(404).send({
+    error : 'Not found'
+  });
 });
+app.use((err, req, res, next) => {
+  res.status(500).send({
+    error : 'Internal server error'
+  });
+});
+
+module.exports = app;
+
+
