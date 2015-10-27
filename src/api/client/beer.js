@@ -12,7 +12,6 @@ const BeerApiClient = function (apiHost) {
 
     findById : (id) => {
       return new Promise((resolve, reject) => {
-        console.log(getUri("beers", id));
         request(getUri("beers", id), function (error, response, body) {
           if (!error && response.statusCode == 200) {
             return resolve(JSON.parse(body));
@@ -24,7 +23,6 @@ const BeerApiClient = function (apiHost) {
 
     getAll : () => {
       return new Promise((resolve, reject) => {
-        console.log(getUri("beers"));
         request(getUri("beers"), function (error, response, body) {
           if (!error && response.statusCode == 200) {
             return resolve(JSON.parse(body));
