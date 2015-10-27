@@ -8,11 +8,11 @@ const BeerApiClient = function (apiHost) {
 
   return {
     findById : (id) => {
-      return require("./resource").get(getUri("beers", id));
+      return require("./resource").get(getUri("breweries", id));
     },
 
     getAll : () => {
-      return require("./resource").get(getUri("beers"));
+      return require("./resource").get(getUri("breweries"));
     }
   };
 };
