@@ -3,6 +3,7 @@ import {graphql, GraphQLID, GraphQLSchema, GraphQLObjectType, GraphQLList, Graph
 const ApiClient = require('../api/client/index');
 const apiClient = new ApiClient("http://localhost:4000");
 const BeerType = require("./BeerType");
+const BreweryType = require("./BreweryType");
 
 const BeerSchema = new GraphQLSchema({
   query : new GraphQLObjectType({
@@ -10,7 +11,7 @@ const BeerSchema = new GraphQLSchema({
     fields : {
       beer : {
         type : BeerType,
-        description : 'Find beer by id',
+        description : 'Find a beer by id',
         args : {
           id : {
             name : 'id',
@@ -26,6 +27,26 @@ const BeerSchema = new GraphQLSchema({
         description : 'Get all beers',
         resolve : () => {
           return apiClient.beer.getAll();
+        }
+      },
+      brewery : {
+        type : BreweryType,
+        description : 'Find a brewery by id',
+        args : {
+          id : {
+            name : 'id',
+            type : new GraphQLNonNull(GraphQLID)
+          }
+        },
+        resolve : (root, {id}) => {
+          return apiClient.brewery.findById(id);
+        }
+      },
+      breweries : {
+        type : new GraphQLList(BreweryType),
+        description : 'Get all breweries',
+        resolve : () => {
+          return apiClient.brewery.getAll()
         }
       }
     }

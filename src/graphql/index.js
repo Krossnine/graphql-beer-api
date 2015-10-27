@@ -4,7 +4,7 @@ const app = new Express();
 const graphqlMiddleware = require('express-graphql');
 
 app.use('/', graphqlMiddleware({
-  schema : require("./BeerSchema"),
+  schema : require("./RootSchema"),
   graphiql : true,
   pretty : true
 }));
